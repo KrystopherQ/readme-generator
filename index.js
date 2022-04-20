@@ -1,7 +1,6 @@
 const inquirer = require('inquirer')
 const fs = require('fs')
 
-
 inquirer
     .prompt([{
             type: 'input',
@@ -17,7 +16,7 @@ inquirer
         {
             type: 'input',
             message: 'What are the installation instructions',
-            name: 'installation',
+            name: 'install',
         },
         {
             type: 'input',
@@ -60,3 +59,47 @@ inquirer
             name: 'email',
         }
     ])
+    .then((data) => {
+        console.log(data);
+        const filename = `${data.name}.md`;
+
+        fs.writeFile(filename, (err) => {
+            err ? console.log(err) : console.log(`
+            # $[title]
+            
+            ## Description 
+            $[description]
+            
+            ## Table of Contents (Optional)
+            
+            * [Installation](#installation)
+            * [Usage](#usage)
+            * [Credits](#credits)
+            * [License](#license)
+            
+            
+            ## Installation
+            $[install]
+            
+            
+            ## Usage 
+            $[usage]
+            
+            
+            
+            ## License
+            $[license]
+            
+            
+            
+            ---
+            
+            ## Contributing
+            $[contributors]
+            
+            
+            ## Questions
+            For questions you can contact me here on [GitHub](https://github.com/${username}) or email me directly at $[email].
+            `)
+        });
+    });
