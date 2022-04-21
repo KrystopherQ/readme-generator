@@ -1,10 +1,10 @@
 
-# fgddfgs
+# Generator
             
 ## Description 
-  gdfsgdsf
+  This generates a professional looking README
             
-## Table of Contents (Optional)
+## Table of Contents
             
  * [Installation](#installation)
  * [Usage](#usage)
@@ -13,22 +13,22 @@
             
             
 ## Installation
-     gdsf
+     none
             
             
 ## Usage 
-    dsfg
+    Generate README
             
             
 ## License
-    Apache License 2.0
+    MIT License
         
             
   ## Contributing
-     dsfg
+     none
             
             
   ## Questions
-  For questions you can contact me here on [GitHub](https://github.com/gsfd) or email me directly at gfd.
+  For questions you can contact me here on [GitHub](https://github.com/KrystopherQ) or email me directly at fhhfhf@hghgh.com.
             
         
