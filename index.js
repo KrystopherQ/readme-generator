@@ -61,45 +61,42 @@ inquirer
     ])
     .then((data) => {
         console.log(data);
-        const filename = `${data.name}.md`;
+        const fillmd = `
+# ${data.title}
+            
+## Description 
+  ${data.description}
+            
+## Table of Contents
+            
+ * [Installation](#installation)
+ * [Usage](#usage)
+ * [Questions](#questions)
+ * [License](#license)
+            
+            
+## Installation
+     ${data.install}
+            
+            
+## Usage 
+    ${data.usage}
+            
+            
+## License
+    ${data.license}
+        
+            
+  ## Contributing
+     ${data.contributors}
+            
+            
+  ## Questions
+  For questions you can contact me here on [GitHub](https://github.com/${data.username}) or email me directly at ${data.email}.
+            
+        `
 
-        fs.writeFile(filename, JSON.stringify(data), (err) =>
-            err ? console.log(err) : console.log(`
-            # $[title]
-            
-            ## Description 
-            $[description]
-            
-            ## Table of Contents (Optional)
-            
-            * [Installation](#installation)
-            * [Usage](#usage)
-            * [Questions](#questions)
-            * [License](#license)
-            
-            
-            ## Installation
-            $[install]
-            
-            
-            ## Usage 
-            $[usage]
-            
-            
-            
-            ## License
-            $[license]
-            
-            
-            
-            ---
-            
-            ## Contributing
-            $[contributors]
-            
-            
-            ## Questions
-            For questions you can contact me here on [GitHub](https://github.com/${username}) or email me directly at $[email].
-            `)
+        fs.writeFile('Generate.md', fillmd, (err) =>
+            err ? console.log(err) : console.log()
         )
     });
