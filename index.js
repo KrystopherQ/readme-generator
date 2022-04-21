@@ -15,7 +15,7 @@ inquirer
 
         {
             type: 'input',
-            message: 'What are the installation instructions',
+            message: 'What are the installation instructions?',
             name: 'install',
         },
         {
@@ -50,12 +50,12 @@ inquirer
         },
         {
             type: 'input',
-            message: 'What is your GitHub username',
+            message: 'What is your GitHub username?',
             name: 'username',
         },
         {
             type: 'input',
-            message: 'What is your email address',
+            message: 'What is your email address?',
             name: 'email',
         }
     ])
@@ -63,7 +63,7 @@ inquirer
         console.log(data);
         const filename = `${data.name}.md`;
 
-        fs.writeFile(filename, (err) => {
+        fs.writeFile(filename, JSON.stringify(data), (err) =>
             err ? console.log(err) : console.log(`
             # $[title]
             
@@ -74,7 +74,7 @@ inquirer
             
             * [Installation](#installation)
             * [Usage](#usage)
-            * [Credits](#credits)
+            * [Questions](#questions)
             * [License](#license)
             
             
@@ -101,5 +101,5 @@ inquirer
             ## Questions
             For questions you can contact me here on [GitHub](https://github.com/${username}) or email me directly at $[email].
             `)
-        });
+        )
     });
